@@ -1,6 +1,3 @@
+console.log('hello!!');
 
-
-console.log('hello!!')
-
-
-window.electron.getCurrentWallpaper()
+window.electron.getCurrentWallpaper();

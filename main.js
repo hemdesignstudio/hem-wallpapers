@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('path');
 const { menubar } = require('menubar');
 
 const mb = menubar({
@@ -6,9 +6,8 @@ const mb = menubar({
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
-    }
-  }
+    },
+  },
 });
 
 mb.on('ready', () => console.log('app is ready'));
-

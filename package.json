@@ -1,0 +1,17 @@
+{
+  "name": "hem-wallpapers",
+  "version": "1.0.0",
+  "main": "main.js",
+  "author": "David Paulsson <david@hem.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^17.0.1"
+  },
+  "dependencies": {
+    "menubar": "^9.1.1",
+    "wallpaper": "^5"
+  }
+}

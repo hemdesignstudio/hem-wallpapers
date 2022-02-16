@@ -1,0 +1,7 @@
+:root {
+  --spacing: 8px;
+}
+
+body {
+  padding: calc(var(--spacing) * 2);
+}

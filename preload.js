@@ -17,4 +17,8 @@ contextBridge.exposeInMainWorld('electron', {
     const currentWallpaper = await wallpaper.get();
     console.log('current wallpaper', currentWallpaper);
   },
+  setCurrentWallpaper: async (path) => {
+    await wallpaper.set(path);
+    console.log('current wallpaper', path);
+  },
 });

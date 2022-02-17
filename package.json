@@ -1,5 +1,6 @@
 {
   "name": "hem-wallpapers",
+  "productName": "Hem Wallpapers",
   "description": "A breathtaking photo for your desktop wallpaper, every day",
   "version": "1.0.1",
   "main": "main.js",

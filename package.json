@@ -9,13 +9,17 @@
   "license": "MIT",
   "scripts": {
     "start": "NODE_ENV=development electron .",
-    "release": "electron-builder",
+    "pack": "electron-builder --dir",
+    "build": "electron-builder",
     "postinstall": "electron-builder install-app-deps"
   },
   "build": {
     "appId": "com.hem.wallpapers",
     "mac": {
-      "category": "public.app-category.utilities"
+      "category": "public.app-category.utilities",
+      "extendInfo": {
+        "LSUIElement": "1"
+      }
     }
   },
   "devDependencies": {

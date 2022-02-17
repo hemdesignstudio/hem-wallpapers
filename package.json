@@ -4,12 +4,22 @@
   "version": "1.0.0",
   "main": "main.js",
   "author": "David Paulsson <david@hem.com>",
+  "repository": "https://github.com/hemdesignstudio/hem-wallpapers",
   "license": "MIT",
   "scripts": {
-    "start": "NODE_ENV=development electron ."
+    "start": "NODE_ENV=development electron .",
+    "release": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "build": {
+    "appId": "com.hem.wallpapers",
+    "mac": {
+      "category": "public.app-category.utilities"
+    }
   },
   "devDependencies": {
-    "electron": "^17.0.1"
+    "electron": "^17.0.1",
+    "electron-builder": "^22.14.13"
   },
   "dependencies": {
     "contentful": "^9.1.10",

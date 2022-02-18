@@ -117,7 +117,6 @@ strong {
 
 .image__icon:hover {
   background-color: var(--color-black);
-  cursor: pointer;
 }
 
 .image__refresh {
@@ -125,36 +124,17 @@ strong {
   height: 29px;
 }
 
-.image__spinner {
-  animation: rotate 2s linear infinite;
-  width: 30px;
-  height: 30px;
+.image__icon svg {
+  fill: var(--color-white);
 }
 
-.image__spinner .path {
-  stroke: var(--color-white);
-  stroke-linecap: round;
-  animation: dash 1.5s ease-in-out infinite;
+.image__icon.rotate svg {
+  animation: rotate 1s linear infinite;
 }
 
 @keyframes rotate {
   100% {
     transform: rotate(360deg);
-  }
-}
-
-@keyframes dash {
-  0% {
-    stroke-dasharray: 1, 150;
-    stroke-dashoffset: 0;
-  }
-  50% {
-    stroke-dasharray: 90, 150;
-    stroke-dashoffset: -35;
-  }
-  100% {
-    stroke-dasharray: 90, 150;
-    stroke-dashoffset: -124;
   }
 }
 
@@ -167,7 +147,6 @@ strong {
   -webkit-appearance: none;
   background-color: var(--color-blue);
   color: var(--color-green-matte);
-  cursor: pointer;
   font: inherit;
   font-weight: var(--font-weight-bold);
   transform: all 0.5s ease;

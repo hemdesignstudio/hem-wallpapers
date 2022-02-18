@@ -1,8 +1,9 @@
+// icons used https://materialui.co/icons
+
 const currentImage = document.getElementById('current-image');
 const swapCurrentImage = document.getElementById('swap-current-image');
 const setAsWallpaper = document.getElementById('set-as-wallpaper');
-const iconRefresh = document.querySelector('.image__refresh');
-const iconSpinner = document.querySelector('.image__spinner');
+const icon = document.querySelector('.image__icon');
 
 const imageFormatParams = '?w=400&fm=avif';
 
@@ -19,15 +20,13 @@ function updatePreviewImage(url) {
 }
 
 swapCurrentImage.addEventListener('click', async () => {
-  iconRefresh.style.display = 'none';
-  iconSpinner.style.display = 'block';
+  icon.classList.add('rotate');
   const url = await getRandomImageUrl();
   updatePreviewImage(url);
 });
 
 currentImage.onload = () => {
-  iconRefresh.style.display = 'block';
-  iconSpinner.style.display = 'none';
+  icon.classList.remove('rotate');
   console.group('loaded!');
 };
 
@@ -60,8 +59,6 @@ setAsWallpaper.addEventListener('click', async () => {
 
 // on app load
 (async () => {
-  iconRefresh.style.display = 'none';
-  iconSpinner.style.display = 'block';
   const url = await getRandomImageUrl();
   updatePreviewImage(url);
 })();

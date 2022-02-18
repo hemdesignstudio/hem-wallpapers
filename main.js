@@ -1,6 +1,17 @@
 const path = require('path');
 const { menubar } = require('menubar');
 const { app, ipcMain, nativeTheme } = require('electron');
+const AutoLaunch = require('auto-launch');
+
+const hemWallpapersAutoLauncher = new AutoLaunch({ name: 'Hem Wallpapers' });
+
+hemWallpapersAutoLauncher.enable();
+hemWallpapersAutoLauncher.isEnabled().then((isEnabled) => {
+  if (isEnabled) {
+    return;
+  }
+  hemWallpapersAutoLauncher.enable();
+});
 
 const isDev = process.env.NODE_ENV === 'development';
 

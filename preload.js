@@ -1,4 +1,4 @@
-const { contextBridge } = require('electron');
+const { ipcRenderer, contextBridge } = require('electron');
 const wallpaper = require('wallpaper');
 const contentful = require('contentful');
 const os = require('os');
@@ -22,6 +22,12 @@ const getBase64Image = async (url) => {
   });
   return reader.result.replace(/^data:.+;base64,/, '');
 };
+
+window.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('close-app').addEventListener('click', () => {
+    ipcRenderer.invoke('quit-app');
+  });
+});
 
 contextBridge.exposeInMainWorld('electron', {
   getCurrentWallpaper: async () => {

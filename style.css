@@ -87,6 +87,28 @@ strong {
 .header {
   padding: calc(var(--spacing) * 2) calc(var(--spacing) * 2) var(--spacing);
   margin-bottom: var(--spacing);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-app {
+  padding: 0;
+  margin: 0;
+  border: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  transform: all 0.5s ease;
+}
+
+.close-app svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--color-gray-dark);
+}
+
+.close-app:hover svg {
+  fill: var(--color-black);
 }
 
 .image {

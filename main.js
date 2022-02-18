@@ -1,11 +1,16 @@
 const path = require('path');
 const { menubar } = require('menubar');
+const { app, ipcMain, nativeTheme } = require('electron');
 
 const isDev = process.env.NODE_ENV === 'development';
 
+function getTrayIcon(isDark = nativeTheme.shouldUseDarkColors) {
+  return path.join(__dirname, `assets/icon${isDark ? '-dark' : ''}.png`);
+}
+
 const mb = menubar({
+  icon: getTrayIcon(),
   tooltip: 'Hem Wallpapers',
-  icon: path.join(__dirname, 'assets/icon.png'),
   showDockIcon: false,
   preloadWindow: true,
   skipTaskbar: true,
@@ -24,8 +29,15 @@ const mb = menubar({
   },
 });
 
+ipcMain.handle('quit-app', () => {
+  app.quit();
+});
+
 mb.on('ready', () => {
   console.log('app is ready');
+
+  // change color of menubar icon based on system appearance
+  nativeTheme.on('updated', () => mb.tray.setImage(getTrayIcon()));
 });
 
 mb.on('after-create-window', () => {

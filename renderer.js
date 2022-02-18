@@ -50,6 +50,7 @@ setAsWallpaper.addEventListener('click', async () => {
   // get random successMessage
   const randomIndex = Math.floor(Math.random() * successMessages.length);
   setAsWallpaper.innerText = successMessages[randomIndex];
+  confetti({ colors: ['#2326DE', '#D2DFEF'] });
 
   setTimeout(() => {
     setAsWallpaper.innerText = 'Set as wallpaper';
